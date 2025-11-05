@@ -198,7 +198,7 @@ class NotionHelper:
         return self.client.pages.create(parent=parent, properties=properties, icon=icon)
 
     @retry(stop_max_attempt_number=3, wait_fixed=5000)
-    def query(self, **kwargs):
+    def query_database(self, **kwargs):
         kwargs = {k: v for k, v in kwargs.items() if v}
         return self.client.databases.query_database(**kwargs)
 
